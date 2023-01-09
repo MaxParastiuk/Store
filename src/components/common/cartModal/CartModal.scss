@@ -148,6 +148,18 @@
 				cursor: pointer;
 				background-color: #fff;
 				@include cart_footer__button;
+
+				&:hover {
+					transition: all 0.2s ease-in;
+					transform: scale(1.03);
+					background-color: #1d1f22;
+					color: white;
+				}
+
+				&:active {
+					transition: transform 0.3s;
+					transform: translateY(5px);
+				}
 			}
 
 			.footer_checkout__button {
@@ -155,6 +167,19 @@
 				border: none;
 				background-color: #5ece7b;
 				color: #fff;
+
+				&:hover {
+					transition: transform 0.3s;
+					transform: scale(1.03);
+					box-shadow: rgba(94, 206, 123, 0.25) 0px 6px 12px -2px,
+						rgba(94, 206, 123, 0.3) 0px 3px 7px -3px;
+				}
+
+				&:active {
+					transition: transform 0.3s;
+					transform: translateY(5px);
+				}
+
 				@include cart_footer__button;
 			}
 		}

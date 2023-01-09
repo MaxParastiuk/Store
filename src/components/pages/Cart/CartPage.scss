@@ -93,6 +93,10 @@
 
 	.content__cart_footer {
 		width: 15%;
+
+		.footer_number {
+			@include cart__footer_syle;
+		}
 		.price__tax {
 			column-gap: 10px;
 			display: flex;
@@ -103,7 +107,7 @@
 			display: flex;
 		}
 
-		.price_number {
+		.price {
 			column-gap: 10px;
 			display: flex;
 		}

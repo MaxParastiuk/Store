@@ -28,21 +28,24 @@ class CartPage extends Component {
 							<CartItem key={index} item={item}></CartItem>
 						))}
 					</div>
-					<div className='content__cart_footer text-price'>
+					<div className='content__cart_footer '>
 						<div className='price__tax'>
 							<div className='price__tax_title'>Tax 21% : </div>
-							<div className='price__tax_number'>
+							<div className='price__tax_number footer_number '>
 								{selectedOption + " " + tax}
 							</div>
 						</div>
 						<div className='price__quantity'>
 							<div className='price__quantity_title'>Quantity :</div>
-							<div className='price__quantity_number'> {totalCount}</div>
+							<div className='price__quantity_number footer_number '>
+								{" "}
+								{totalCount}
+							</div>
 						</div>
 
-						<div className='price_number'>
+						<div className='price'>
 							<div className='price__title_total'>Total: </div>
-							<div className='price__number'>
+							<div className='price__number footer_number '>
 								{selectedOption + " " + totalAmount}
 							</div>
 						</div>

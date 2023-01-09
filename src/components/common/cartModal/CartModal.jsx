@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { toggleCart } from "../../../redux/feature/cartSlice";
+import { orderCartItems, toggleCart } from "../../../redux/feature/cartSlice";
 import CartItem from "./CartItem";
 import "./CartModal.scss";
 
@@ -39,7 +39,11 @@ class CartModal extends Component {
 								className='footer_view__button'>
 								VIEW BAG
 							</Link>
-							<button className='footer_checkout__button'>CHECK OUT</button>
+							<button
+								className='footer_checkout__button'
+								onClick={() => this.props.orderCartItems()}>
+								CHECK OUT
+							</button>
 						</div>
 					</div>
 				</div>
@@ -57,6 +61,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
 	toggleCart: () => dispatch(toggleCart()),
+	orderCartItems: () => dispatch(orderCartItems()),
 });
 
 const functionFromConnect = connect(mapStateToProps, mapDispatchToProps);
