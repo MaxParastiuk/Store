@@ -7,7 +7,7 @@ import DropDown from "./DropDown";
 import { CATEGORY_NAMES } from "../../../apollo/services";
 import clientRequest from "../../../apollo/clientRequest";
 import { connect } from "react-redux";
-import { toggleCart, getCartTotal } from "../../../redux/feature/cartSlice";
+import { toggleCart } from "../../../redux/feature/cartSlice";
 
 class AppHeader extends Component {
 	state = {
@@ -81,7 +81,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
 	toggleCart: () => dispatch(toggleCart()),
-	getCartTotal: (item) => dispatch(getCartTotal(item)),
 });
 
 const functionFromConnect = connect(mapStateToProps, mapDispatchToProps);

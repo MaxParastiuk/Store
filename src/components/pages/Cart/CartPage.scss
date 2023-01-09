@@ -1,0 +1,133 @@
+@import "../../common/variables.scss";
+
+.container__cart {
+	position: relative;
+	max-width: 1600px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 100px;
+	padding-left: 100px;
+	min-height: 700px;
+
+	.content__cart_main {
+		padding-top: 80px;
+		list-style: none;
+
+		.modal_content_item {
+			padding-top: 24px;
+			border-top: 2px solid #e5e5e5;
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 20px;
+
+			&:last-child {
+				padding-bottom: 24px;
+				border-bottom: 2px solid #e5e5e5;
+			}
+
+			.leftside__content_describe {
+				.content_product-name {
+					font-family: "Raleway", sans-serif;
+					font-weight: 700;
+					font-size: 30px;
+					line-height: 27px;
+				}
+
+				.content_product_price {
+					font-family: "Raleway", sans-serif;
+					font-weight: 700;
+					font-size: 24px;
+					line-height: 24px;
+				}
+			}
+
+			.rightside__content {
+				flex-basis: 25%;
+				display: flex;
+				column-gap: 10px;
+
+				.content_quantity {
+					flex-basis: 10%;
+					flex-direction: column;
+					display: flex;
+					justify-content: space-between;
+
+					.quantity_button {
+						font-size: 20px;
+						padding: 15px 15px;
+						cursor: pointer;
+						background-color: #fff;
+						box-shadow: none;
+						border: 1px solid rgba(29, 31, 34, 1);
+					}
+
+					.quntity_item_number {
+						text-align: center;
+					}
+				}
+
+				.content_product_img {
+					flex-basis: 90%;
+					overflow: hidden;
+					position: relative;
+					.product_img {
+						max-width: 200px;
+						max-height: 288px;
+					}
+				}
+			}
+		}
+
+		.product_attribute__list {
+			padding: 0;
+			.attribute_item {
+				list-style: none;
+				.attribute_item_title {
+					@include product-page__title;
+					margin: 20px 0 8px;
+				}
+				@include attribute__style_product-cart;
+			}
+		}
+	}
+
+	.content__cart_footer {
+		width: 15%;
+		.price__tax {
+			column-gap: 10px;
+			display: flex;
+		}
+
+		.price__quantity {
+			column-gap: 10px;
+			display: flex;
+		}
+
+		.price_number {
+			column-gap: 10px;
+			display: flex;
+		}
+
+		.cart__footer_btn-order {
+			margin-top: 16px;
+			background-color: #5ece7b;
+			color: #fff;
+			border: none;
+			padding: 16px 86px;
+			cursor: pointer;
+
+			&:hover {
+				transition: transform 0.1s ease, box-shadow 0.1s;
+				transform: scale(1.03);
+				box-shadow: 0 14px 28px rgba(94, 206, 123, 0.4),
+					0 10px 10px rgba(94, 206, 123, 0.3);
+			}
+
+			&:active {
+				transition: transform 0.15s ease, box-shadow 0.2s;
+				box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+				transform: translateY(7px);
+			}
+		}
+	}
+}

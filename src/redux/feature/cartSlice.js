@@ -7,6 +7,7 @@ const cartSlice = createSlice({
 		totalAmount: 0,
 		totalCount: 0,
 		isCartOpen: false,
+		tax: 0,
 	},
 	reducers: {
 		addToCart: (state, { payload }) => {
@@ -107,6 +108,14 @@ const cartSlice = createSlice({
 				}),
 			};
 		},
+
+		orderCartItems: (state) => {
+			state.items = [];
+		},
+
+		getTaxFromAmount: (state) => {
+			state.tax = Math.round((state.totalAmount * 21) / 100);
+		},
 	},
 });
 
@@ -117,6 +126,8 @@ export const {
 	decrease,
 	increase,
 	changeAttributeCart,
+	orderCartItems,
+	getTaxFromAmount,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
