@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap");
+$breakpoint_xxl: 1224px;
+$breakpoint_xl: 1024px;
+$breakpoint_xl-s: 900px;
+$breakpoint_md: 764px;
+$breakpoint_sm: 480px;
+@mixin modal_cart__text {
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 26px;
+	color: #1d1f22;
+}
+
+@mixin modal_cart_price {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 26px;
+}
+
+@mixin cart_footer__button {
+	padding: 13px 36px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+@mixin product-page__title {
+	font-family: "Roboto", sans-serif;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 18px;
+}
+
+@mixin attribute__style {
+	.attribute_item_title {
+		margin: 8px 0;
+	}
+
+	.item_list {
+		padding: 0;
+		list-style: none;
+		display: flex;
+		column-gap: 4px;
+
+		.sublist_item {
+			.sublist_item__button-text {
+				background-color: #fff;
+				border: 1px solid rgba(29, 31, 34, 1);
+				font-size: 14px;
+				padding: 5px;
+				cursor: pointer;
+			}
+
+			.active_button-text {
+				background-color: black;
+				color: #fff;
+			}
+
+			.sublist_item__button-swatch {
+				border: none;
+				width: 1.3em;
+				height: 1.3em;
+				cursor: pointer;
+			}
+
+			.active_button-swatch {
+				border: 1px solid #fff;
+				box-shadow: 0px 0px 0px 1px rgba(94, 206, 123, 1);
+			}
+		}
+	}
+}
