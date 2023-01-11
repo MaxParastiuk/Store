@@ -2,12 +2,12 @@
 
 1. Click on this [link](https://github.com/scandiweb/junior-react-endpoint) for instructions on how to run the backend server for thi project 
 
-git clone https://github.com/MaxParastiuk/Scandiweb-Test-Task.git
+2. git clone https://github.com/MaxParastiuk/Scandiweb-Test-Task.git
 
-Change directory into cloned folder cd client
+3. Change directory into cloned folder cd client
 
-Install project dependencies npm install
+4. Install project dependencies npm install
 
-Run Project npm start
+5. Run Project npm start
 
-The project will start up in your localhost server
+6. The project will start up in your localhost server
