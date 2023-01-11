@@ -1,13 +1,13 @@
 ### `To run this project locally, please follow these instructions:`
 
-Click on this link for instructions on how to run the backend server for thi project
+Click on this link https://github.com/scandiweb/junior-react-endpoint for instructions on how to run the backend server for thi project 
 
-Clone this repo git clone https://github.com/MaxParastiuk/Scandiweb-Test-Task.git
+git clone https://github.com/MaxParastiuk/Scandiweb-Test-Task.git
 
-Change directory into cloned folder cd scandi-web-test
+Change directory into cloned folder cd client
 
-Install project dependencies yarn install
+Install project dependencies npm install
 
-Run Project yarn start
+Run Project npm start
 
 The project will start up in your localhost server
