@@ -1,0 +1,3 @@
+[submodule "junior-react-endpoint"]
+	path = junior-react-endpoint
+	url = https://github.com/scandiweb/junior-react-endpoint
