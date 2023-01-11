@@ -1,6 +1,6 @@
 ### `To run this project locally, please follow these instructions:`
 
-Click on this link https://github.com/scandiweb/junior-react-endpoint for instructions on how to run the backend server for thi project 
+Click on this [link](https://github.com/scandiweb/junior-react-endpoint) for instructions on how to run the backend server for thi project 
 
 git clone https://github.com/MaxParastiuk/Scandiweb-Test-Task.git
 
