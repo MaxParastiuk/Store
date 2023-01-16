@@ -1,16 +1,15 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import { changeAttributeCart } from "../../../../redux/feature/cartSlice";
-import { changeAttributeProduct } from "../../../../redux/feature/productSlice";
+import { changeAttributeCart } from "../../../redux/feature/cartSlice";
+import { changeAttributeProduct } from "../../../redux/feature/productSlice";
 
 class AttributesList extends Component {
 	render() {
 		const { id } = this.props.product;
-		const { items, name, type, id: attrID } = this.props.attribute;
+		const { items, name, type } = this.props.attribute;
 
 		return (
 			<>
-				{console.log(attrID)}
 				<li className='attribute_item'>
 					<h3 className='attribute_item_title text-cart'>{name}:</h3>
 					<ul className='item_list'>

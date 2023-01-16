@@ -18,15 +18,15 @@
 	display: flex;
 	flex-wrap: wrap;
 	list-style: none;
-	row-gap: 120px;
+	row-gap: 100px;
 	padding-left: 0;
 	margin: 0;
+	column-gap: 2%;
 
 	.products-list__item {
 		position: relative;
-		flex-basis: 30.33%;
-		margin-right: 15px;
-		margin-left: 15px;
+		flex-basis: 32%;
+		margin: 0;
 		padding-left: 10px;
 		padding-right: 10px;
 
@@ -96,28 +96,26 @@
 		transition: box-shadow 0.5s;
 		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 	}
-
-	@media (max-width: $breakpoint_xxl) {
+}
+@media (max-width: $breakpoint_xxl) {
+	.products-list {
 		.products-list__item {
-			flex-basis: 29.53%;
-
 			.product_btn__addtocart {
 				top: 68%;
 				right: 10%;
 			}
 		}
 	}
-	@media (max-width: $breakpoint_xl) {
-		.products-list__item {
-			flex-basis: 27.83%;
-			.product_btn__addtocart {
-				width: 30%;
-				top: 62%;
-				right: 10%;
-			}
-		}
+}
+
+@media (max-width: $breakpoint_xl-s) {
+	.products-title {
+		font-size: 32px;
+		line-height: 140%;
+		margin: 10px 0 50px;
 	}
-	@media (max-width: $breakpoint_xl-s) {
+
+	.products-list {
 		.products-list__item {
 			.product_btn__addtocart {
 				width: 30%;
@@ -130,8 +128,15 @@
 			}
 		}
 	}
+}
 
-	@media (max-width: 880px) {
+@media (max-width: 880px) {
+	.products-title {
+		font-size: 28px;
+		line-height: 120%;
+		margin: 10px 10px 40px;
+	}
+	.products-list {
 		.products-list__item {
 			.product_btn__addtocart {
 				width: 30%;
@@ -140,10 +145,43 @@
 			}
 		}
 	}
+}
 
-	@media (max-width: $breakpoint_md) {
+@media (max-width: $breakpoint_md) {
+	.products-title {
+		font-size: 26px;
+		line-height: 100%;
+		margin: 20px 10px 40px;
+	}
+	.products-list {
+		row-gap: 50px;
+		column-gap: 4%;
 		.products-list__item {
-			flex-basis: 26.83%;
+			margin: 0;
+			flex-basis: 48%;
+			.product_btn__addtocart {
+				width: 30%;
+				top: 40%;
+				right: 10%;
+			}
+
+			.stock-out {
+				font-size: 12px;
+			}
+		}
+	}
+}
+
+@media (max-width: $breakpoint_sm) {
+	.products-title {
+		text-align: center;
+		font-size: 30px;
+		margin: 25px 10px 30px;
+	}
+	.products-list {
+		row-gap: 20px;
+		.products-list__item {
+			flex-basis: 100%;
 			.product_btn__addtocart {
 				width: 30%;
 				top: 40%;

@@ -1,3 +1,5 @@
+@import "../../common/variables.scss";
+
 button {
 	font-weight: 500;
 	font-size: 18px;
@@ -62,5 +64,19 @@ button {
 	position: static !important;
 	ul {
 		display: flex;
+	}
+}
+
+@media (max-width: $breakpoint_md) {
+	.dropdown-container__list {
+		top: 2.4em;
+		right: 1.9em;
+
+		ul {
+			li {
+				padding: 12px 14px 15px;
+				font-size: 12px;
+			}
+		}
 	}
 }

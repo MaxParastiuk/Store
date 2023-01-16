@@ -20,7 +20,6 @@ class CategoryItem extends Component {
 
 		return (
 			<>
-				{console.log(this.props.item)}
 				<li
 					className='products-list__item'
 					onMouseEnter={this.onHover}

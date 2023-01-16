@@ -60,41 +60,6 @@
 
 					.attribute_item {
 						@include attribute__style;
-						// .attribute_item_title {
-						// 	margin: 8px 0;
-						// }
-
-						// .item_list {
-						// 	display: flex;
-						// 	column-gap: 4px;
-
-						// 	.sublist_item {
-						// 		.sublist_item__button-text {
-						// 			background-color: #fff;
-						// 			border: 1px solid rgba(29, 31, 34, 1);
-						// 			font-size: 14px;
-						// 			padding: 5px;
-						// 			cursor: pointer;
-						// 		}
-
-						// 		.active_button-text {
-						// 			background-color: black;
-						// 			color: #fff;
-						// 		}
-
-						// 		.sublist_item__button-swatch {
-						// 			border: none;
-						// 			width: 1.3em;
-						// 			height: 1.3em;
-						// 			cursor: pointer;
-						// 		}
-
-						// 		.active_button-swatch {
-						// 			border: 1px solid #fff;
-						// 			box-shadow: 0px 0px 0px 1px rgba(94, 206, 123, 1);
-						// 		}
-						// 	}
-						// }
 					}
 				}
 
@@ -181,6 +146,28 @@
 				}
 
 				@include cart_footer__button;
+			}
+		}
+	}
+}
+
+@media (max-width: $breakpoint_sm) {
+	.modal_container {
+		.modal_paper {
+			.modal_content {
+				.modal_content_item {
+					flex-direction: column-reverse;
+
+					.rightside__content {
+						flex-direction: row-reverse;
+					}
+				}
+			}
+
+			.modal_footer {
+				column-gap: 0;
+				row-gap: 12px;
+				flex-direction: column;
 			}
 		}
 	}

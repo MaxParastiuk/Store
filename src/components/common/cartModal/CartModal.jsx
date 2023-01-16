@@ -2,7 +2,7 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { orderCartItems, toggleCart } from "../../../redux/feature/cartSlice";
-import CartItem from "./CartItem";
+import CartItem from "../main/CartItem";
 import "./CartModal.scss";
 
 class CartModal extends Component {
@@ -11,7 +11,6 @@ class CartModal extends Component {
 		const { selectedOption } = this.props.currency;
 		return (
 			<>
-				{console.log(this.props.cart)}
 				<div
 					className='modal_backdrop'
 					onClick={() => this.props.toggleCart()}></div>

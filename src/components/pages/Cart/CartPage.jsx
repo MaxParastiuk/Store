@@ -4,7 +4,7 @@ import {
 	getTaxFromAmount,
 	orderCartItems,
 } from "../../../redux/feature/cartSlice";
-import CartItem from "../../common/cartModal/CartItem";
+import CartItem from "../../common/main/CartItem";
 import CartModal from "../../common/cartModal/CartModal";
 import "./CartPage.scss";
 
@@ -22,7 +22,7 @@ class CartPage extends Component {
 		const { selectedOption } = this.props.currency;
 		return (
 			<>
-				<div className='container__cart'>
+				<div className='cart__page container'>
 					<div className='content__cart_main'>
 						{items.map((item, index) => (
 							<CartItem key={index} item={item}></CartItem>
@@ -49,12 +49,12 @@ class CartPage extends Component {
 								{selectedOption + " " + totalAmount}
 							</div>
 						</div>
-						<button
-							className='cart__footer_btn-order'
-							onClick={() => this.onClickOrderButton()}>
-							ORDER
-						</button>
 					</div>
+					<button
+						className='cart__footer_btn-order'
+						onClick={() => this.onClickOrderButton()}>
+						ORDER
+					</button>
 					{this.props.cart.isCartOpen && <CartModal />}
 				</div>
 			</>

@@ -1,14 +1,6 @@
 @import "../../common/variables.scss";
 
-.container__cart {
-	position: relative;
-	max-width: 1600px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-right: 100px;
-	padding-left: 100px;
-	min-height: 700px;
-
+.cart__page {
 	.content__cart_main {
 		padding-top: 80px;
 		list-style: none;
@@ -92,7 +84,7 @@
 	}
 
 	.content__cart_footer {
-		width: 15%;
+		width: 25%;
 
 		.footer_number {
 			@include cart__footer_syle;
@@ -111,27 +103,79 @@
 			column-gap: 10px;
 			display: flex;
 		}
+	}
+
+	.cart__footer_btn-order {
+		margin-top: 16px;
+		background-color: #5ece7b;
+		color: #fff;
+		border: none;
+		padding: 16px 86px;
+		cursor: pointer;
+
+		&:hover {
+			transition: transform 0.1s ease, box-shadow 0.1s;
+			transform: scale(1.03);
+			box-shadow: 0 14px 28px rgba(94, 206, 123, 0.4),
+				0 10px 10px rgba(94, 206, 123, 0.3);
+		}
+
+		&:active {
+			transition: transform 0.15s ease, box-shadow 0.2s;
+			box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+			transform: translateY(7px);
+		}
+	}
+}
+
+@media (max-width: $breakpoint_md) {
+	.cart__page {
+		.content__cart_main {
+			padding-top: 40px;
+			.modal_content_item {
+				flex-direction: column-reverse;
+
+				.leftside__content_describe {
+					flex-basis: 35%;
+				}
+
+				.rightside__content {
+					flex-direction: column-reverse;
+					flex-basis: 50% !important;
+					row-gap: 10px;
+
+					.content_product_img {
+						padding-bottom: 100%;
+						overflow: hidden;
+						position: relative;
+						display: block !important;
+
+						.product_img {
+							max-width: none;
+							max-height: none;
+							width: 100%;
+							height: auto;
+							position: absolute;
+						}
+					}
+
+					.content_quantity {
+						flex-basis: 100%;
+					}
+				}
+			}
+		}
+
+		.content__cart_footer {
+			.footer_number {
+				font-size: 18px;
+				line-height: 20px;
+			}
+		}
 
 		.cart__footer_btn-order {
-			margin-top: 16px;
-			background-color: #5ece7b;
-			color: #fff;
-			border: none;
-			padding: 16px 86px;
-			cursor: pointer;
-
-			&:hover {
-				transition: transform 0.1s ease, box-shadow 0.1s;
-				transform: scale(1.03);
-				box-shadow: 0 14px 28px rgba(94, 206, 123, 0.4),
-					0 10px 10px rgba(94, 206, 123, 0.3);
-			}
-
-			&:active {
-				transition: transform 0.15s ease, box-shadow 0.2s;
-				box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
-				transform: translateY(7px);
-			}
+			display: block;
+			margin: 16px auto;
 		}
 	}
 }

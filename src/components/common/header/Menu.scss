@@ -1,0 +1,40 @@
+@import "../../common/variables.scss";
+
+.menu {
+	width: 100%;
+
+	.menu__list {
+		padding: 0;
+		list-style: none;
+
+		.menu__list_item {
+			display: block;
+			padding: 10px 0;
+			text-align: center;
+			border-top: 1px solid #5ece7b;
+			cursor: pointer;
+
+			&:first-child {
+				border: none;
+			}
+
+			&:last-child {
+				border-bottom: 1px solid #5ece7b;
+			}
+
+			&:hover {
+				transition: all 0.3s;
+				background-color: #5ece7b;
+				color: white;
+			}
+		}
+	}
+}
+
+@media (min-width: $breakpoint_md) {
+	.menu {
+		.menu__list {
+			display: none;
+		}
+	}
+}

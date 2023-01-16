@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import "./components/common/variables.scss";
 
 *,
 ::before,
@@ -40,4 +41,18 @@ code {
 
 .main {
 	min-height: 700px;
+}
+
+@media (max-width: $breakpoint_md) {
+	.container {
+		padding-right: 50px;
+		padding-left: 50px;
+	}
+}
+
+@media (max-width: $breakpoint_sm) {
+	.container {
+		padding-right: 25px;
+		padding-left: 25px;
+	}
 }
