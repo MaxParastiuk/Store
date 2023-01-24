@@ -44,13 +44,16 @@
 	}
 
 	.header_nav-left {
-		ul {
+		.nav-left {
 			padding-left: 0;
 			margin: 0;
 			display: flex;
 			list-style: none;
 
 			.nav-left__link {
+				text-transform: uppercase;
+				font-weight: 600;
+				font-size: 16px;
 				padding: 4px 16px;
 				padding-bottom: 32px;
 
@@ -109,7 +112,7 @@
 		}
 
 		.header_nav-left {
-			ul {
+			.nav-left {
 				display: none;
 			}
 

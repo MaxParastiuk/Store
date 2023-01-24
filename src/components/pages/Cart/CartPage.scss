@@ -63,6 +63,7 @@
 					overflow: hidden;
 					position: relative;
 					.product_img {
+						position: absolute !important;
 						max-width: 200px;
 						max-height: 288px;
 					}
@@ -106,7 +107,7 @@
 	}
 
 	.cart__footer_btn-order {
-		margin-top: 16px;
+		margin: 16px 0;
 		background-color: #5ece7b;
 		color: #fff;
 		border: none;

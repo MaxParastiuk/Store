@@ -6,7 +6,15 @@
 		display: flex;
 		column-gap: 5%;
 		.leftside__list_img {
-			flex-basis: 10%;
+			&::-webkit-scrollbar {
+				width: 0px;
+				background: rgba(255, 255, 255, 0);
+			}
+
+			overflow-y: scroll;
+			-ms-overflow-style: none;
+			max-height: 70vh;
+			flex-basis: 15%;
 			display: flex;
 			row-gap: 18px;
 			flex-direction: column;
@@ -16,23 +24,22 @@
 				cursor: pointer;
 				box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 				transition: transform 0.5s;
-
-				&:hover {
-					transform: scale(1.2);
-					box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-						0 10px 10px rgba(0, 0, 0, 0.22);
-				}
 			}
 		}
 		.rightside__part {
 			display: flex;
-			flex-basis: 85%;
+			flex-basis: 80%;
 
 			.middle__main_img {
 				flex-basis: 60%;
+				overflow: hidden;
+				position: relative;
+				padding-bottom: 100%;
 
 				.main__img_item {
-					max-width: 100%;
+					width: 100%;
+					height: auto;
+					position: absolute;
 				}
 			}
 
@@ -45,6 +52,12 @@
 
 				.discription__part {
 					margin-left: 10px;
+
+					.part__left {
+						.brand {
+							margin-bottom: 16px;
+						}
+					}
 				}
 				.description_product-name {
 					margin: 0 0 30px;
@@ -141,6 +154,12 @@
 					}
 				}
 
+				.disable {
+					background-color: grey !important;
+					pointer-events: none !important;
+					cursor: default !important;
+				}
+
 				.decription__text {
 					font-family: "Roboto", sans-serif;
 					font-size: 16px;
@@ -155,8 +174,6 @@
 @media (max-width: $breakpoint_xl) {
 	.product__content {
 		margin-bottom: 20px;
-		.leftside__list_img {
-		}
 
 		.rightside__part {
 			flex-direction: column;
@@ -237,34 +254,6 @@
 				overflow: hidden;
 				position: relative !important;
 				display: block !important;
-
-				.main__img_item {
-					width: 100%;
-					height: auto;
-					position: absolute !important;
-				}
-
-				.slider {
-					position: absolute;
-					bottom: 0;
-					display: flex;
-					width: 100%;
-					justify-content: space-between;
-					z-index: 2;
-
-					.slider__item {
-						width: 7%;
-						cursor: pointer;
-
-						&:hover {
-							transform: scale(1.1);
-						}
-					}
-				}
-
-				.main__img_item {
-					max-width: 100%;
-				}
 			}
 
 			.rightside__description-part {

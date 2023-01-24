@@ -1,0 +1,43 @@
+.main__img_item {
+	max-width: 100%;
+	height: auto;
+	position: absolute !important;
+}
+
+.slider {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	z-index: 2;
+
+	.slider__item {
+		width: 7%;
+		cursor: pointer;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}
+
+.slider__in_cart {
+	position: absolute;
+	bottom: 0;
+	z-index: 2;
+	display: flex;
+	width: 100%;
+	justify-content: right;
+	margin-bottom: 5px;
+	column-gap: 4px;
+
+	.slider__item {
+		width: 15%;
+		cursor: pointer;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}

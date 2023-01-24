@@ -6,13 +6,16 @@ import {
 	increase,
 } from "../../../redux/feature/cartSlice";
 import { connect } from "react-redux";
+import Slider from "../slider/Slider";
 
 class CartItem extends Component {
 	componentDidMount() {
 		this.props.getCartTotal(this.props.currency.selectedOption);
 	}
+
 	render() {
-		const { name, gallery, prices, attributes, quantityItem } = this.props.item;
+		const { isFromModal, item } = this.props;
+		const { name, gallery, prices, attributes, quantityItem } = item;
 
 		return (
 			<li className='modal_content_item'>
@@ -52,7 +55,14 @@ class CartItem extends Component {
 						</button>
 					</div>
 					<div className='content_product_img'>
-						<img className='product_img' src={gallery[0]} alt='#' />
+						{isFromModal ? (
+							<img className='product_img' src={gallery[0]} alt='#' />
+						) : (
+							<Slider
+								img={gallery[0]}
+								gallery={gallery}
+								isFromCart={true}></Slider>
+						)}
 					</div>
 				</div>
 			</li>

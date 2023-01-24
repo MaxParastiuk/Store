@@ -30,6 +30,7 @@ button {
 }
 
 .dropdown-container__list {
+	background-color: white;
 	position: absolute;
 	top: 2.4em;
 	right: -0.3em;
@@ -46,15 +47,9 @@ button {
 			font-weight: 500;
 			font-size: 18px;
 
-			&:nth-child(2n) {
-				background-color: #eeeeee;
-			}
-
 			&:hover {
-				color: #8c9d90;
-				-webkit-transform: scale(1.05);
-				-ms-transform: scale(1.05);
-				transform: scale(1.05);
+				background-color: #eeeeee;
+				transform: scale(1.02);
 			}
 		}
 	}

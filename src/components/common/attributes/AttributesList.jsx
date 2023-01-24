@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import { changeAttributeCart } from "../../../redux/feature/cartSlice";
 import { changeAttributeProduct } from "../../../redux/feature/productSlice";
+// import { changeAttributeCart } from "../../../redux/feature/cartSlice";
 
 class AttributesList extends Component {
 	render() {
@@ -18,7 +18,9 @@ class AttributesList extends Component {
 								{type === "text" ? (
 									<button
 										onClick={() =>
-											this.onChangeAttribute(id, item.value, type, name)
+											this.props.isFromProduct
+												? this.onChangeAttribute(id, item.value, type, name)
+												: null
 										}
 										className={
 											"sublist_item__button-text" +
@@ -29,7 +31,9 @@ class AttributesList extends Component {
 								) : (
 									<button
 										onClick={() =>
-											this.onChangeAttribute(id, item.value, type, name)
+											this.props.isFromProduct
+												? this.onChangeAttribute(id, item.value, type, name)
+												: null
 										}
 										className={
 											"sublist_item__button-swatch " +
@@ -44,15 +48,18 @@ class AttributesList extends Component {
 			</>
 		);
 	}
+
 	onChangeAttribute(idProduct, value, type, name) {
-		if (!this.props.isFromProduct) {
-			this.props.changeAttributeCart({ idProduct, value, type, name });
-		} else this.props.changeAttributeProduct({ value, type, name });
+		// Change attribute in cart
+		// if (this.props.isFromProduct) {
+		// 	this.props.changeAttributeCart({ idProduct, value, type, name });
+		// } else
+		this.props.changeAttributeProduct({ value, type, name });
 	}
 }
 
 const mapDispatchToProps = (dispatch) => ({
-	changeAttributeCart: (value) => dispatch(changeAttributeCart(value)),
+	// changeAttributeCart: (value) => dispatch(changeAttributeCart(value)),
 	changeAttributeProduct: (value) => dispatch(changeAttributeProduct(value)),
 });
 

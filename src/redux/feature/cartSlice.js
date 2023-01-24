@@ -80,34 +80,36 @@ const cartSlice = createSlice({
 					totalCount: 0,
 				}
 			);
-			state.totalAmount = parseInt(totalAmount.toFixed(2));
+			state.totalAmount = totalAmount;
 			state.totalCount = totalCount;
 		},
-		changeAttributeCart: (state, { payload }) => {
-			const findIndex = state.items.findIndex(
-				(el) => el.id === payload.idProduct
-			);
 
-			const newAttr = state.items[findIndex].attributes.filter(
-				(el) => el.name === payload.name
-			);
+		// Change ATTRIBUTES IN CART
+		// changeAttributeCart: (state, { payload }) => {
+		// 	const findIndex = state.items.findIndex(
+		// 		(el) => el.id === payload.idProduct
+		// 	);
 
-			state.items[findIndex] = {
-				...state.items[findIndex],
-				attributes: state.items[findIndex].attributes.map((el) => {
-					return el === newAttr[0]
-						? {
-								...el,
-								items: el.items.map((item) => {
-									return item.value === payload.value
-										? { ...item, selected: true }
-										: { ...item, selected: false };
-								}),
-						  }
-						: { ...el };
-				}),
-			};
-		},
+		// 	const newAttr = state.items[findIndex].attributes.filter(
+		// 		(el) => el.name === payload.name
+		// 	);
+
+		// 	state.items[findIndex] = {
+		// 		...state.items[findIndex],
+		// 		attributes: state.items[findIndex].attributes.map((el) => {
+		// 			return el === newAttr[0]
+		// 				? {
+		// 						...el,
+		// 						items: el.items.map((item) => {
+		// 							return item.value === payload.value
+		// 								? { ...item, selected: true }
+		// 								: { ...item, selected: false };
+		// 						}),
+		// 				  }
+		// 				: { ...el };
+		// 		}),
+		// 	};
+		// },
 
 		orderCartItems: (state) => {
 			state.items = [];
@@ -125,7 +127,7 @@ export const {
 	getCartTotal,
 	decrease,
 	increase,
-	changeAttributeCart,
+	// changeAttributeCart,
 	orderCartItems,
 	getTaxFromAmount,
 } = cartSlice.actions;

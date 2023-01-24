@@ -4,7 +4,11 @@
 	font-weight: 400;
 	font-size: 42px;
 	line-height: 160%;
-	margin: 0px 0 60px;
+	margin: 0 0 60px;
+
+	&::first-letter {
+		text-transform: uppercase;
+	}
 }
 
 .modal {
@@ -32,8 +36,6 @@
 
 		.disable {
 			opacity: 0.5;
-			pointer-events: none;
-			cursor: default;
 		}
 
 		.stock-out {
@@ -134,7 +136,8 @@
 	.products-title {
 		font-size: 28px;
 		line-height: 120%;
-		margin: 10px 10px 40px;
+		padding-top: 10px;
+		margin: 0 0 40px;
 	}
 	.products-list {
 		.products-list__item {
@@ -151,7 +154,8 @@
 	.products-title {
 		font-size: 26px;
 		line-height: 100%;
-		margin: 20px 10px 40px;
+		padding-top: 20px;
+		margin: 0 0 40px;
 	}
 	.products-list {
 		row-gap: 50px;
@@ -174,6 +178,7 @@
 
 @media (max-width: $breakpoint_sm) {
 	.products-title {
+		padding: 0;
 		text-align: center;
 		font-size: 30px;
 		margin: 25px 10px 30px;

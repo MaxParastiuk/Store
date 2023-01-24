@@ -9,7 +9,7 @@ export default class Menu extends Component {
 			<>
 				{isMenuOpen ? (
 					<div className='menu'>
-						<ul className='menu__list'>
+						<div className='menu__list'>
 							{categories.map((item, index) => (
 								<Link
 									className='menu__list_item'
@@ -19,7 +19,7 @@ export default class Menu extends Component {
 									{item.name}
 								</Link>
 							))}
-						</ul>
+						</div>
 					</div>
 				) : null}
 			</>

@@ -9,27 +9,29 @@ import clientRequest from "../../../apollo/clientRequest";
 import { connect } from "react-redux";
 import { toggleCart } from "../../../redux/feature/cartSlice";
 import Menu from "./Menu";
+import {
+	addCategories,
+	changeCategory,
+} from "../../../redux/feature/categorySlice";
 
 class AppHeader extends Component {
 	state = {
-		dataCategories: [],
-		active: window.location.pathname.slice(1),
 		isMenuOpen: false,
 	};
 
 	componentDidMount() {
-		clientRequest(CATEGORY_NAMES).then((data) =>
-			this.setState({
-				dataCategories: data.data.categories,
-			})
-		);
+		clientRequest(CATEGORY_NAMES).then((data) => {
+			this.props.addCategories(data.data.categories);
+		});
+		this.props.changeCategory(window.location.pathname.slice(1));
 	}
 
 	render() {
 		const { totalCount } = this.props.cart;
-		const { dataCategories, active } = this.state;
+		const { listCategories, selectedCategory } = this.props.category;
 		return (
 			<>
+				{console.log(selectedCategory)}
 				<div className='page__header container'>
 					<div className='header '>
 						<nav className='header_nav-left'>
@@ -38,19 +40,20 @@ class AppHeader extends Component {
 								onClick={() => this.onOpenOrCloseMenu()}>
 								<span></span>
 							</div>
-							<ul className='nav-left'>
-								{dataCategories.map((item, index) => (
+							<div className='nav-left'>
+								{listCategories.map((item, index) => (
 									<Link
-										onClick={() => this.onChangeActive(item.name)}
+										onClick={() => this.props.changeCategory(item.name)}
 										className={
-											"nav-left__link " + (item.name === active ? "active" : "")
+											"nav-left__link " +
+											(item.name === selectedCategory ? "active" : "")
 										}
 										to={`/${item.name}`}
 										key={index}>
 										{item.name}
 									</Link>
 								))}
-							</ul>
+							</div>
 						</nav>
 						<img className='logo' src={logo} alt='logo' />
 						<nav className='header_nav-right'>
@@ -69,17 +72,13 @@ class AppHeader extends Component {
 					</div>
 					<Menu
 						onChangeActive={this.onChangeActive}
-						categories={dataCategories}
+						categories={listCategories}
 						isMenuOpen={this.state.isMenuOpen}
 						className='nav__menu'></Menu>
 				</div>
 			</>
 		);
 	}
-
-	onChangeActive = (item) => {
-		this.setState({ active: item });
-	};
 
 	onOpenOrCloseMenu() {
 		this.setState({ isMenuOpen: !this.state.isMenuOpen });
@@ -90,11 +89,14 @@ const mapStateToProps = (state) => {
 	return {
 		cart: state.cart,
 		currency: state.currency,
+		category: state.category,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => ({
 	toggleCart: () => dispatch(toggleCart()),
+	addCategories: (array) => dispatch(addCategories(array)),
+	changeCategory: (item) => dispatch(changeCategory(item)),
 });
 
 const functionFromConnect = connect(mapStateToProps, mapDispatchToProps);

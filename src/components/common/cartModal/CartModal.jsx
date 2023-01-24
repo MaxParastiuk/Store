@@ -22,7 +22,7 @@ class CartModal extends Component {
 						</div>
 						<div className='modal_content'>
 							{items.map((item, index) => (
-								<CartItem key={index} item={item}></CartItem>
+								<CartItem isFromModal={true} key={index} item={item}></CartItem>
 							))}
 						</div>
 						<div className='total_price text-price'>

@@ -14,6 +14,27 @@ class CategoryItem extends Component {
 	state = {
 		onMouse: false,
 	};
+
+	onAddProductToCart(item, id) {
+		const updateAttribute = item.attributes.map((att) => {
+			return {
+				...att,
+				items: att.items.map((item, index) => {
+					return index === 0
+						? { ...item, selected: true }
+						: { ...item, selected: false };
+				}),
+			};
+		});
+		const findSelectedAttribute = updateAttribute.map((i) =>
+			i.items.find((item) => item.selected === true)
+		);
+
+		const newId = `${id} ${findSelectedAttribute.map((el) => el.id)}`;
+
+		this.props.onAddToCart({ ...item, attributes: updateAttribute, id: newId });
+	}
+
 	render() {
 		const { selectedOption } = this.props.currency;
 		const { id, name, gallery, prices, inStock } = this.props.item;
@@ -44,7 +65,7 @@ class CategoryItem extends Component {
 					{this.state.onMouse && inStock ? (
 						<div className='product_btn__addtocart'>
 							<img
-								onClick={() => this.props.onAddToCart(this.props.item)}
+								onClick={() => this.onAddProductToCart(this.props.item, id)}
 								src={addToCart}
 								alt='addtocart'></img>
 						</div>

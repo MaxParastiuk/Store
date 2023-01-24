@@ -7,8 +7,8 @@ import { addToSelectedProduct } from "../../../redux/feature/productSlice";
 import AttributesList from "../../common/attributes/AttributesList";
 import CartModal from "../../common/cartModal/CartModal";
 import "./ProductPage.scss";
-import slideLeft from "../../../img/slide-left.svg";
-import slideRight from "../../../img/slide-right.svg";
+
+import Slider from "../../common/slider/Slider";
 class ProductPage extends Component {
 	constructor(props) {
 		super(props);
@@ -16,7 +16,6 @@ class ProductPage extends Component {
 			item: [],
 			loading: true,
 			selectedImg: "",
-			itter: 1,
 		};
 	}
 
@@ -37,36 +36,22 @@ class ProductPage extends Component {
 	}
 
 	onAddToCart(id, item, isFromProduct) {
-		this.props.addToCart({ id, item, isFromProduct });
-	}
+		const selectedAttribute = item.attributes.map((i) => {
+			return i.items.find((el) => el.selected === true);
+		});
 
-	onNextImg(itemGallery) {
-		this.setState({ itter: this.state.itter + 1 });
-		if (this.state.itter === itemGallery.length - 1) {
-			this.setState({
-				itter: 0,
-				selectedImg: itemGallery[this.state.itter],
-			});
-		} else {
-			this.setState({ selectedImg: itemGallery[this.state.itter] });
-		}
-	}
+		const newId = `${id} ${selectedAttribute.map((el) => el.id)}`;
 
-	onPreviousImg(itemGallery) {
-		this.setState({ itter: this.state.itter - 1 });
-		if (this.state.itter <= 0) {
-			this.setState({
-				itter: itemGallery.length - 1,
-				selectedImg: itemGallery[this.state.itter],
-			});
-		} else {
-			this.setState({ selectedImg: itemGallery[this.state.itter] });
-		}
+		this.props.addToCart({
+			id: newId,
+			item: { ...item, id: newId },
+			isFromProduct,
+		});
 	}
 
 	render() {
 		const { loading, selectedImg } = this.state;
-		const { description, name, attributes, gallery, prices } =
+		const { brand, description, name, attributes, gallery, prices, inStock } =
 			this.props.product.selectedProduct;
 		return (
 			<>
@@ -91,33 +76,20 @@ class ProductPage extends Component {
 
 								{/* ADAPTIVE DESIGN SLIDER FOR MOBILE */}
 								<div className='middle__main_slider'>
-									<img className='main__img_item' src={selectedImg} alt='' />
-									<div className='slider'>
-										<img
-											onClick={() => {
-												this.onPreviousImg(gallery);
-											}}
-											className='slider__item'
-											src={slideLeft}
-											alt='slideLeft'
-										/>
-										<img
-											onClick={() => this.onNextImg(gallery)}
-											className='slider__item'
-											src={slideRight}
-											alt='slideRight'
-										/>
-									</div>
+									<Slider img={selectedImg} gallery={gallery}></Slider>
 								</div>
 
 								{/* DESCRIPTION PRODUCT */}
 								<div className='rightside__description-part'>
 									<div className='discription__part'>
 										<div className='part__left'>
+											<h2 className='description_product-name text-cart brand'>
+												{brand}
+											</h2>
 											<h3 className='description_product-name text-cart'>
 												{name}
 											</h3>
-											<ul className='description_attribute__list'>
+											<div className='description_attribute__list'>
 												{attributes.map((attribute, index) => (
 													<AttributesList
 														isFromProduct={true}
@@ -125,7 +97,7 @@ class ProductPage extends Component {
 														key={index}
 														attribute={attribute}></AttributesList>
 												))}
-											</ul>
+											</div>
 										</div>
 
 										<div className='part__right'>
@@ -144,7 +116,11 @@ class ProductPage extends Component {
 													))}
 											</div>
 											<button
-												className='btn__add-to-cart'
+												className={
+													inStock
+														? "btn__add-to-cart"
+														: "btn__add-to-cart disable"
+												}
 												onClick={() =>
 													this.onAddToCart(
 														this.props.product.selectedProduct.id,
@@ -154,11 +130,9 @@ class ProductPage extends Component {
 												}>
 												ADD TO CART
 											</button>
-											<div
-												className='decription__text'
-												dangerouslySetInnerHTML={{
-													__html: `${description}`,
-												}}></div>
+											<div className='decription__text'>
+												{description.replace(/<\/?[a-zA-Z]+>/gi, "")}
+											</div>
 										</div>
 									</div>
 								</div>
